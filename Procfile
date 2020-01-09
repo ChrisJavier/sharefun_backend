@@ -1,1 +1,1 @@
-web: gunicorn sharefun_proyect.wsgi --log-file
+web: gunicorn sharefun_proyect.wsgi --log-file -
