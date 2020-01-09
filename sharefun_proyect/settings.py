@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import dj_database_url
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,10 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '_64jsizhz0dm2+g^!0@jy*q(@-d5k1cd*^h19a9lq2wxr)s2q@'
+SECRET_KEY = config('SECRET_KEY', default='_64jsizhz0dm2+g^!0@jy*q(@-d5k1cd*^h19a9lq2wxr)s2q@')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config('DJANGO_DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
@@ -90,7 +92,12 @@ DATABASES = {
         'PASSWORD': 'poli1234',
         'HOST': 'localhost',
         'PORT': '5432',
-    }
+    },
+
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
+
 }
 
 # Password validation
@@ -131,7 +138,7 @@ PROJECT_ROOT = os.path.join(os.path.abspath(__file__))
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #  Add configuration for static files storage using whitenoise
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
