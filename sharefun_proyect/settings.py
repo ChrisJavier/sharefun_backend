@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'sharefun_proyect.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=config('HEROKU_POSTGRESQL_SILVER_URL')
+        default=config('DATABASE_URL')
     )
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
