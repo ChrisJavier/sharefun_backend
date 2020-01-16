@@ -17,18 +17,13 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from apprest.viewsets import PersonViewSet
 from django.conf import settings
 from django.conf.urls.static import static
 
-admin.autodiscover()
-
-router = routers.DefaultRouter()
-router.register(r'persons', PersonViewSet)
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
                   url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-                  url(r'^rest/', include(router.urls)),
+                  url(r'^', include('app.urls')),
 
-              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

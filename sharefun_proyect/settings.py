@@ -21,10 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY', default='_64jsizhz0dm2+g^!0@jy*q(@-d5k1cd*^h19a9lq2wxr)s2q@')
+SECRET_KEY = '64jsizhz0dm2+g^!0@jy*q(@-d5k1cd*^h19a9lq2wxr)s2q@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DJANGO_DEBUG', default=True, cast=bool)
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-    'apprest',
     'rest_framework',
 ]
 
@@ -85,17 +84,17 @@ WSGI_APPLICATION = 'sharefun_proyect.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=config('HEROKU_POSTGRESQL_SILVER_URL')
-    )
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'db_sharefun',
-    #     'USER': 'share_user',
-    #     'PASSWORD': 'poli1234',
-    #     'HOST': 'localhost',
-    #     'PORT': '5432',
-    # },
+    # 'default': dj_database_url.config(
+    #     default=config('HEROKU_POSTGRESQL_SILVER_URL')
+    # )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'db_sharefun',
+        'USER': 'share_user',
+        'PASSWORD': 'poli1234',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    },
 
 }
 
@@ -136,8 +135,9 @@ USE_TZ = True
 PROJECT_ROOT = os.path.join(os.path.abspath(__file__))
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#  Add configuration for static files storage using whitenoise
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
+
+#  Add configuration for static files storage using whitenoise
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
