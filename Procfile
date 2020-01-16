@@ -1,1 +1,1 @@
-web: gunicorn sharefun_proyect.wsgi --pythonpath=sharefun_proyect --log-file -
+web: gunicorn sharefun_proyect.wsgi --log-file -

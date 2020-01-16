@@ -84,17 +84,17 @@ WSGI_APPLICATION = 'sharefun_proyect.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    # 'default': dj_database_url.config(
-    #     default=config('HEROKU_POSTGRESQL_SILVER_URL')
-    # )
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'db_sharefun',
-        'USER': 'share_user',
-        'PASSWORD': 'poli1234',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    },
+    'default': dj_database_url.config(
+        default=config('HEROKU_POSTGRESQL_SILVER_URL')
+    )
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'db_sharefun',
+    #     'USER': 'share_user',
+    #     'PASSWORD': 'poli1234',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432',
+    # },
 
 }
 
