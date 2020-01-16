@@ -26,7 +26,7 @@ SECRET_KEY = '64jsizhz0dm2+g^!0@jy*q(@-d5k1cd*^h19a9lq2wxr)s2q@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://sharefunbackend.herokuapp.com']
 
 # Application definition
 
@@ -86,15 +86,15 @@ WSGI_APPLICATION = 'sharefun_proyect.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         default=config('DATABASE_URL')
-    )
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'db_sharefun',
-    #     'USER': 'share_user',
-    #     'PASSWORD': 'poli1234',
-    #     'HOST': 'localhost',
-    #     'PORT': '5432',
-    # },
+    ),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'db_sharefun',
+        'USER': 'share_user',
+        'PASSWORD': 'poli1234',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    },
 
 }
 
