@@ -28,6 +28,21 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['sharefunbackend.herokuapp.com']
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+        },
+    },
+}
 # Application definition
 
 INSTALLED_APPS = [
@@ -80,9 +95,9 @@ WSGI_APPLICATION = 'sharefun_proyect.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    ),
+    # 'default': dj_database_url.config(
+    #     default=config('DATABASE_URL')
+    # ),
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'db_sharefun',
