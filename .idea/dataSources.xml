@@ -7,5 +7,13 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/db_sharefun</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="Django default" uuid="c465fb91-1869-4561-8b95-91578263a5e2">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/sharefun_proyect/settings.py</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/db_sharefun</jdbc-url>
+    </data-source>
   </component>
 </project>

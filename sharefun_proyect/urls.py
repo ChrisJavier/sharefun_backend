@@ -19,11 +19,18 @@ from django.urls import path, include
 from rest_framework import routers
 from django.conf import settings
 from django.conf.urls.static import static
-
+from rest_framework.authtoken import views
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
                   url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
                   url(r'^', include('app.urls')),
 
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+                  url(r'^api/v1/profile/', include(('restprofile.urls', 'restprofile'), namespace='restprofile')),
+                  url(r'^api/v1/post/', include(('restpost.urls', 'restpost'), namespace='restpost')),
+                  url(r'^api/v1/account/', include(('restapp.urls', 'restprofile'), namespace='restapp')),
+                  url(r'^profile/', include(('userprofile.urls', 'userprofile'), namespace='user_profile')),
+                  url(r'^post/', include(('mygroup.urls', 'mygroup'), namespace='mygroup')),
+                  url(r'^account/', include(('app.urls', 'app'), namespace='shareapi')),
+
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
