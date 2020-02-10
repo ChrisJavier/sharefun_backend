@@ -16,7 +16,7 @@ from .serializers import updateSerializer
 
 from rest_framework.response import Response
 
-from mygroup.models import Post
+from mypost.models import Post
 
 from rest_framework.permissions import (
     IsAuthenticated,

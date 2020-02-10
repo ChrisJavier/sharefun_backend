@@ -1,0 +1,263 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<title>Home Share Fun</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body, h1, h2, h3, h4, h5, h6 {
+        font-family: "Raleway", sans-serif
+    }
+
+    body, html {
+        height: 100%;
+        line-height: 1.8;
+    }
+
+    /* Full height image header */
+    .bgimg-1 {
+        background-position: center;
+        background-size: cover;
+        background-image: url("https://www.ecuavisa.com/sites/default/files/fotos/2013/10/18/descubre_por_que_ver_mas_de_2_horas_de_tv_es_malo.jpg");
+        min-height: 100%;
+    }
+
+    .w3-bar .w3-button {
+        padding: 16px;
+    }
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-card" id="myNavbar">
+        <a href="#home" class="w3-bar-item w3-button w3-wide"><img style="max-width:35px;"
+                src="https://dewey.tailorbrands.com/production/brand_version_mockup_image/180/2635666180_79e796c5-e7f3-42ba-940a-a05f0c49c206.png?cb=1581259029"
+                alt=""></a>
+        <!-- Right-sided navbar links -->
+        <div class="w3-right w3-hide-small">
+            <a href="#about" class="w3-bar-item w3-button">Sobre Nosotros</a>
+            <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> Precio</a>
+            <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> Contactos</a>
+            <a href="{% url 'app:register' %}" class="w3-bar-item w3-button"> Registrar</a>
+            <a href="{% url 'app:login' %}" class="w3-bar-item w3-button btn-warning"> Login</a>
+        </div>
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+           onclick="w3_open()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none"
+     id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">Sobre Nosotros</a>
+    <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">Precio</a>
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">Contactos</a>
+</nav>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+    <div class="w3-display-left w3-text-white" style="padding:48px">
+        <span style="font-size: 55px"
+              class="w3-hide-small">Comparte la cuentas y disfrutas con muchos m&aacute;s!!! </span><br>
+        <span class="w3-xxlarge w3-hide-large w3-hide-medium">Start something that matters</span><br>
+        <span class="w3-large">Crea tus grupos o ingresa en alguno y empieza la diversi&oacute;n</span>
+        <p><a href="#about"
+              class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Ingresa
+            Ahora</a></p>
+    </div>
+    <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </div>
+</header>
+
+<!-- About Section -->
+<div class="w3-container" style="padding:128px 16px" id="about">
+    <h3 class="w3-center">Qu&eacute; es Share Fun?</h3>
+    <p class="w3-center w3-large">Ofrecemos</p>
+    <div class="w3-row-padding w3-center" style="margin-top:64px">
+        <div class="w3-quarter">
+            <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
+            <p class="w3-large">Administraci&oacute;n</p>
+            <p>Ofrecemos ayuda en la administraci&oacute;n de los grupos de los diferentes servicios que la gente propone.</p>
+        </div>
+        <div class="w3-quarter">
+            <i class="fa fa-shield w3-margin-bottom w3-jumbo"></i>
+            <p class="w3-large">Seguridad</p>
+            <p>Tus cuentas, m&eacute;todos de pago ser&aacute;n protegidos por nuestro sistema de autenticaci&oacute;n</p>
+        </div>
+        <div class="w3-quarter">
+            <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
+            <p class="w3-large">Variedad</p>
+            <p>Diferentes servicios que es posible conpartir cuentas.</p>
+        </div>
+        <div class="w3-quarter">
+            <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
+            <p class="w3-large">Soporte</p>
+            <p>Ayuda las 24 horas con inconvenientes en cualquier parte del proceso de integraci&oacute;n</p>
+        </div>
+    </div>
+</div>
+
+<!-- Promo Section "Statistics" -->
+<div class="w3-container w3-row w3-center w3-light-grey w3-padding-64">
+    <div class="w3-quarter">
+        <span class="w3-xxlarge">1k+</span>
+        <br>Integrantes
+    </div>
+    <div class="w3-quarter">
+        <span class="w3-xxlarge">55+</span>
+        <br>Grupos
+    </div>
+    <div class="w3-quarter">
+        <span class="w3-xxlarge">89+</span>
+        <br>Clientes Satisfechos
+    </div>
+    <div class="w3-quarter">
+        <span class="w3-xxlarge">10+</span>
+        <br>Diferentes Servicios
+    </div>
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+    <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+        <img id="img01" class="w3-image">
+        <p id="caption" class="w3-opacity w3-large"></p>
+    </div>
+</div>
+
+<!-- Pricing Section -->
+<div class="w3-container w3-center w3-dark-grey" style="padding:128px 16px" id="pricing">
+    <h3>Precio</h3>
+    <p class="w3-large">Escoge el mejor precio y empecemos la diversi&oacute;n.</p>
+    <div class="w3-row-padding" style="margin-top:64px">
+        <div class="w3-third w3-section">
+            <ul class="w3-ul w3-white w3-hover-shadow">
+                <li class="w3-black w3-xlarge w3-padding-32">B&aacute;sico</li>
+                <li class="w3-padding-16"><b>1 </b> Cuenta</li>
+                <li class="w3-padding-16"><b>1 </b> Servicio</li>
+                <li class="w3-padding-16"><b>1 </b> Dispositivo</li>
+                <li class="w3-padding-16">
+                    <h2 class="w3-wide">$ 2</h2>
+                    <span class="w3-opacity">Mensual</span>
+                </li>
+                <li class="w3-light-grey w3-padding-24">
+                    <button class="w3-button w3-black w3-padding-large">Registarte</button>
+                </li>
+            </ul>
+        </div>
+        <div class="w3-third">
+            <ul class="w3-ul w3-white w3-hover-shadow">
+                <li class="w3-red w3-xlarge w3-padding-48">Pro</li>
+                <li class="w3-padding-16"><b>2 </b> Cuentas</li>
+                <li class="w3-padding-16"><b>2 </b> Servicios</li>
+                <li class="w3-padding-16"><b>1 </b> Dispositivo a la Vez</li>
+                <li class="w3-padding-16">
+                    <h2 class="w3-wide">$ 5</h2>
+                    <span class="w3-opacity">Mensual</span>
+                </li>
+                <li class="w3-light-grey w3-padding-24">
+                        <button class="w3-button w3-black w3-padding-large">Registrate</button>
+                </li>
+            </ul>
+        </div>
+        <div class="w3-third w3-section">
+            <ul class="w3-ul w3-white w3-hover-shadow">
+                <li class="w3-black w3-xlarge w3-padding-32">Premium</li>
+                <li class="w3-padding-16"><b>5</b> Cuentas</li>
+                <li class="w3-padding-16"><b>3</b> Servicios</li>
+                <li class="w3-padding-16"><b>+1</b> Dispositivo</li>
+                <li class="w3-padding-16">
+                    <h2 class="w3-wide">$ 10</h2>
+                    <span class="w3-opacity">Mensual</span>
+                </li>
+                <li class="w3-light-grey w3-padding-24">
+                    <button class="w3-button w3-black w3-padding-large">Registrate</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Section -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
+    <h3 class="w3-center">Contactos</h3>
+    <p class="w3-center w3-large">Dinos que piensas para mejorar dejanos tu mensaje</p>
+    <div style="margin-top:48px">
+        <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Ecuador, Quito</p>
+        <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Tel&eacute;fono: 098128718212</p>
+        <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Correo Electr&oacute;nico: mail@mail.com</p>
+        <br>
+        <form action="/action_page.php" target="_blank">
+            <p><input class="w3-input w3-border" type="text" placeholder="Nombre" required name="Name"></p>
+            <p><input class="w3-input w3-border" type="text" placeholder="Correo Electronico" required name="Email"></p>
+            <p><input class="w3-input w3-border" type="text" placeholder="Asunto" required name="Subject"></p>
+            <p><input class="w3-input w3-border" type="text" placeholder="Mensaje" required name="Message"></p>
+            <p>
+                <button class="w3-button w3-black" type="submit">
+                    <i class="fa fa-paper-plane"></i> Enviar Mensaje
+                </button>
+            </p>
+        </form>
+        <!-- Image of location/map -->
+       <iframe class="text-center" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7979.516624723109!2d-78.55105167756585!3d-0.31424337037766875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d5a23e56415421%3A0x16faec28b9a6ebdb!2sLa%20Bretana%2C%20Quito!5e0!3m2!1ses!2sec!4v1581269608042!5m2!1ses!2sec" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64">
+    <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Subir</a>
+    <div class="w3-xlarge w3-section">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </div>
+    <p>Copyright <a href="#home" title="W3.CSS" target="_blank"
+                     class="w3-hover-text-green">2020</a></p>
+</footer>
+
+<script>
+    // Modal Image Gallery
+    function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+    }
+
+
+    // Toggle between showing and hiding the sidebar when clicking the menu icon
+    var mySidebar = document.getElementById("mySidebar");
+
+    function w3_open() {
+        if (mySidebar.style.display === 'block') {
+            mySidebar.style.display = 'none';
+        } else {
+            mySidebar.style.display = 'block';
+        }
+    }
+
+    // Close the sidebar with the close button
+    function w3_close() {
+        mySidebar.style.display = "none";
+    }
+</script>
+
+</body>
+</html>

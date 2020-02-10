@@ -30,7 +30,7 @@ urlpatterns = [
                   url(r'^api/v1/post/', include(('restpost.urls', 'restpost'), namespace='restpost')),
                   url(r'^api/v1/account/', include(('restapp.urls', 'restprofile'), namespace='restapp')),
                   url(r'^profile/', include(('userprofile.urls', 'userprofile'), namespace='user_profile')),
-                  url(r'^post/', include(('mygroup.urls', 'mygroup'), namespace='mygroup')),
+                  url(r'^post/', include(('mypost.urls', 'mypost'), namespace='mypost')),
                   url(r'^account/', include(('app.urls', 'app'), namespace='shareapi')),
 
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

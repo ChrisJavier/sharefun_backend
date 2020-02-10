@@ -2,8 +2,8 @@ from rest_framework import serializers
 from rest_framework.serializers import (
     ModelSerializer,
 )
-from mygroup.models import Post
-from mygroup.models import Category
+from mypost.models import Post
+from mypost.models import Category
 
 
 class listSerializer(ModelSerializer):

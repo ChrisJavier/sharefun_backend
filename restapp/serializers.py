@@ -4,8 +4,8 @@ from rest_framework.serializers import (
     ValidationError,
     EmailField,
 )
-from mygroup.models import Post
-from mygroup.models import Category
+from mypost.models import Post
+from mypost.models import Category
 from restapp.models import DriverUser
 
 

@@ -1,16 +1,12 @@
 from django.shortcuts import render, redirect
-from .forms import ListForm, UpdateForm
+from .forms import ListForm, UpdateForm, ProfileDetails, UserForm
 from django.shortcuts import render
-
-from mygroup.models import Post
-from mygroup.models import Category
+import logging
+from mypost.models import Post, Category, DriverUser
 from django.core.paginator import Paginator
-
+from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
-
-
-# from .forms import UpdateForm
 
 
 def all_posts(request):
@@ -26,7 +22,7 @@ def all_posts(request):
     paginator = Paginator(posts, 10)
     page = request.GET.get('page')
 
-    posts = paginator.get_page(page)
+    ##posts = paginator.get_page(page)
 
     context_posts = {
         'posts': posts,
@@ -34,6 +30,38 @@ def all_posts(request):
     }
 
     return render(request, 'user_profile/all_profiles.html', context_posts)
+
+
+def profile(request):
+    user = DriverUser.objects.filter(id=request.user.id).order_by('-id')
+    posts = Post.objects.filter(author=user).order_by('-id')
+    dict = {}
+    for users in user:
+        dict['username'] = users.username
+        dict['email'] = users.email
+        dict['password'] = users.password
+        dict['n_user'] = users.pk
+        dict['first_name'] = users.first_name
+
+    dict['posts'] = posts
+    context_posts = dict
+    return render(request, 'user_profile/profile_detail.html', context_posts)
+
+
+def update_dart(request):
+    user = DriverUser.objects.filter(id=request.user.id).order_by('-id')
+    posts = Post.objects.filter(author=user).order_by('-id')
+    dict = {}
+    for users in user:
+        dict['username'] = users.username
+        dict['email'] = users.email
+        dict['password'] = users.password
+        dict['n_user'] = users.pk
+        dict['first_name'] = users.first_name
+
+    dict['posts'] = posts
+    context_posts = dict
+    return render(request, 'user_profile/profile_detai_updatel.html', context_posts)
 
 
 def update_post(request, pk):
@@ -46,6 +74,23 @@ def update_post(request, pk):
         if form.is_valid():
             form.save()
     return render(request, 'user_profile/update.html', {'form': form, 'all_category': all_category, 'post': post})
+
+
+def update_user(request, pk):
+    user = User.objects.get(id=pk)
+    print('matrildeklaksdasa')
+    print(user)
+    form = UserForm(request.POST, instance=user)
+
+    if request.method == "POST":
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = request.GET.get('username', None)
+            user.save()
+            return redirect('post_detail', pk=user.pk)
+    else:
+        form = UserForm()
+    return render(request, 'user_profile/profile_detail.html', {'form': form})
 
 
 def delete_post(request, pk):

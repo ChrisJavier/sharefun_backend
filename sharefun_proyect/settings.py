@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     # Applications of Web
     'app',
     'userprofile',
-    'mygroup',
+    'mypost',
     'restapp',
     'restpost',
     'restprofile',
@@ -162,12 +162,17 @@ USE_TZ = True
 PROJECT_ROOT = os.path.join(os.path.abspath(__file__))
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATICFILES_DIRS = (
+#STATICFILES_DIRS = (
 #     os.path.join(PROJECT_ROOT, 'static'),
-# )
+#    'staticfiles',
+#    'static',
+#)
 
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 AUTH_USER_MODEL = 'restapp.DriverUser'

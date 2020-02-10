@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="{% url 'userprofile:list' %}">
+        <img style="max-width:35px;"
+             src="https://dewey.tailorbrands.com/production/brand_version_mockup_image/180/2635666180_79e796c5-e7f3-42ba-940a-a05f0c49c206.png?cb=1581259029"
+             alt=""></a>
+
+    <form class="form-inline my-2 my-lg-0">
+        <div class="row">
+            <div class="col-md-8">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </div>
+        </div>
+    </form>
+    <div class="collapse navbar-collapse text-right offset-md-5">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 text-right">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'userprofile:list' %}">Inicio <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'userprofile:profile' %}">Perfil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'app:logout' %}">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>

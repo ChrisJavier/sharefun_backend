@@ -1,0 +1,57 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+    <div class="card">
+        <h5 class="card-header">Perfil de Usuario</h5>
+        <div class="card-body">
+            <h5 class="card-title">{{ first_name }}</h5>
+            <p class="card-text">
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="form-control">
+                            <label><b>Username:</b>{{ username }}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="form-control">
+                            <label><b>Email:</b>{{ email }}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="form-control">
+                            <label><b>Numero de Usuario:</b>{{ n_user }}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="form-control">
+                            <label><b style="max-height: max-content">Como te gusta que te llamen:</b>{{ first_name }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="form-control">
+                        <label style="max-width: inherit"><b>Password:</b>{{ password }}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        </p>
+        <a href="{% url 'userprofile:updateper' %}" class="btn btn-primary">Actualizar</a>
+    </div>
+    </div>
+{% endblock %}

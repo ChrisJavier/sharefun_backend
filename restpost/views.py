@@ -13,8 +13,8 @@ from .serializers import (
 from rest_framework.generics import (CreateAPIView, RetrieveUpdateAPIView, DestroyAPIView, ListAPIView, RetrieveAPIView)
 from rest_framework.response import Response
 
-from mygroup.models import Post
-from mygroup.models import Category
+from mypost.models import Post
+from mypost.models import Category
 
 from rest_framework.permissions import (
     IsAuthenticated,
